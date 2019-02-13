@@ -47,10 +47,8 @@ class LessonFive {
         cartCount.waitUntil(Condition.not(Condition.text(currentCartCount)),60000)
         Selenide.$("#cart").click()
         def totalPrice = Selenide.$("tr.footer td:nth-of-type(2)").text
-        assert totalPrice == price : " Wrong Price"
+        assert totalPrice.double == price.double: " Wrong Price"
         println("End")
-
-
 
 
     }
