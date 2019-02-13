@@ -48,16 +48,6 @@ class LessonFive {
         Selenide.$("#cart").click()
         def totalPrice = Selenide.$("tr.footer td:nth-of-type(2)").text
         assert totalPrice == price : " Wrong Price"
-
-
-
-
-
-
-
-
-
-
         println("End")
 
 
