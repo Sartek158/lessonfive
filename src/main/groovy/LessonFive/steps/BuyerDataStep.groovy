@@ -7,7 +7,6 @@ import LessonFive.helpers.WebDriverHelper
 class BuyerDataStep {
 
     static void fillBuyerData() {
-
         BuyerData.FirstName().setValue("Ivan" + UUID.randomUUID().toString())
         BuyerData.LastName().setValue("Medvedev" + UUID.randomUUID().toString())
         BuyerData.Address1().setValue("Veresaeva 12 7")

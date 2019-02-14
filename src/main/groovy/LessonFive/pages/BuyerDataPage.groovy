@@ -8,6 +8,5 @@ class BuyerDataPage {
     static String orderSuccess() {
         def orderSucces = Selenide.$("h1.title")
         orderSucces.waitUntil(Condition.text("Your order is successfully completed!"), 60000)
-
     }
 }

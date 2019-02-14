@@ -1,9 +1,8 @@
 import LessonFive.pages.BuyerDataPage
 import LessonFive.pages.CartPage
 import LessonFive.pages.MainPage
+import LessonFive.pages.ProductPage
 import LessonFive.steps.BuyerDataStep
-import com.codeborne.selenide.Condition
-import com.codeborne.selenide.Selenide
 import org.testng.annotations.Test
 
 class LessonFive {
@@ -28,19 +27,11 @@ class LessonFive {
 
         MainPage.openMainPage()
         MainPage.selectProduct()
-        //Записываем стоимость
-        def price = Selenide.$("div.information span.price").text
-        //Записываем количество товаров в корзине
-        def cartCount = Selenide.$("span.quantity")
-        def currentCartCount = cartCount.text
-        //Кликаем по кнокпе добавления в корзину
-        def addToCartButton = Selenide.$("button[name='add_cart_product']")
-        addToCartButton.click()
-        //Ожидаем в течении одной секунды пока значение currentCartCount перестанет совпадать с текушим значением корзины cartCount.text
-        cartCount.waitUntil(Condition.not(Condition.text(currentCartCount)),60000)
-        Selenide.$("#cart").click()
-        def totalPrice = Selenide.$("tr.footer td:nth-of-type(2)").text
-        assert totalPrice.double == price.double: " Wrong Price"
+        ProductPage.getProductPrice()
+        ProductPage.addcartCount()
+        ProductPage.addToCart()
+        ProductPage.goToCart()
+        CartPage.matchPrice()
         BuyerDataStep.fillBuyerData()
         CartPage.confirmOrder()
         BuyerDataPage.orderSuccess()

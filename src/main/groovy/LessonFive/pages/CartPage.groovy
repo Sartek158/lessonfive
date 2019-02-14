@@ -12,4 +12,9 @@ class CartPage {
         confirmButton.click()
 
     }
+
+    static matchPrice() {
+        def totalPrice = Selenide.$("tr.footer td:nth-of-type(2)").text
+        assert totalPrice.double == ProductPage.getProductPrice(): " Wrong Price"
+    }
 }
