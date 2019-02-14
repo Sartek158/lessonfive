@@ -1,5 +1,6 @@
 import LessonFive.pages.BuyerDataPage
 import LessonFive.pages.CartPage
+import LessonFive.pages.MainPage
 import LessonFive.steps.BuyerDataStep
 import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Selenide
@@ -24,20 +25,9 @@ class LessonFive {
          */
 
 
-        //1. Открыть страницу http://litecart.stqa.ru/en/ (для главной страницы использовать PageObject)
-        Selenide.open("http://litecart.stqa.ru/en/")
-        //Ищем все продукты
-        def products = Selenide.$$x("//li[contains(@class,'product')][not(contains(.,'Sale'))]")
-        println("products.size: " + products.size())
-        //Считаем количество продуктов
-        def countOfProducts = products.size()
-        //Создаем экземпляр класса рандом
-        def random = new Random()
-        //Выбираем случайное число из диапозона от 0 до countOfProducts - 1
-        def randomResult = random.nextInt(countOfProducts)
-        println("randomResult: " + randomResult)
-        //Выбираем продукт под  номером randomResult и кликаем по нему
-        products.get(randomResult).click()
+
+        MainPage.openMainPage()
+        MainPage.selectProduct()
         //Записываем стоимость
         def price = Selenide.$("div.information span.price").text
         //Записываем количество товаров в корзине
