@@ -1,5 +1,6 @@
 package LessonFive.pages
 
+import LessonFive.elements.ProductPrice
 import LessonFive.helpers.WebDriverHelper
 import com.codeborne.selenide.Selenide
 
@@ -15,6 +16,6 @@ class CartPage {
 
     static matchPrice() {
         def totalPrice = Selenide.$("tr.footer td:nth-of-type(2)").text
-        assert totalPrice.double == ProductPage.getProductPrice(): " Wrong Price"
+        assert totalPrice.double == ProductPrice.gerProductPrice(): " Wrong Price"
     }
 }
