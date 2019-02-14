@@ -1,7 +1,8 @@
+import LessonFive.pages.BuyerDataPage
+import LessonFive.pages.CartPage
+import LessonFive.steps.BuyerDataStep
 import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Selenide
-import org.awaitility.Awaitility
-import org.awaitility.Duration
 import org.testng.annotations.Test
 
 class LessonFive {
@@ -50,36 +51,9 @@ class LessonFive {
         Selenide.$("#cart").click()
         def totalPrice = Selenide.$("tr.footer td:nth-of-type(2)").text
         assert totalPrice.double == price.double: " Wrong Price"
-        def firstName = Selenide.$("input[name = 'firstname']")
-        def lastName = Selenide.$("input[name = 'lastname']")
-        def address1 = Selenide.$("input[name = 'address1']")
-        def postCode = Selenide.$("input[name = 'postcode']")
-        def city = Selenide.$("input[name = 'city']")
-        def email = Selenide.$("input[name = 'email']")
-        def phone = Selenide.$("input[name = 'phone']")
-        def comments = Selenide.$("textarea[name = 'comments']")
-        firstName.setValue("Ivan" + UUID.randomUUID().toString())
-        lastName.setValue("Medvedev" + UUID.randomUUID().toString())
-        address1.setValue("Veresaeva 12 7")
-        postCode.setValue("121357" + UUID.randomUUID().toString())
-        city.setValue("Moscow")
-        email.setValue("test@tinkoff.ru")
-        phone.setValue("+791657445561")
-        Awaitility.await().ignoreExceptions().pollInSameThread().pollInterval(Duration.ONE_SECOND).atMost(Duration.ONE_MINUTE).until {
-            Selenide.executeJavaScript("return jQuery.active == 0") as Boolean
-        }
-        comments.setValue("V domofon ne zvonit")
-        def confirmButton = Selenide.$("button[name = 'confirm_order']")
-        Awaitility.await().ignoreExceptions().pollInSameThread().pollInterval(Duration.ONE_SECOND).atMost(Duration.ONE_MINUTE).until {
-            Selenide.executeJavaScript("return jQuery.active == 0") as Boolean
-        }
-        confirmButton.click()
-        def orderSucces = Selenide.$("h1.title")
-        orderSucces.waitUntil(Condition.text("Your order is successfully completed!"), 60000)
-
-
-        println("End")
-
+       BuyerDataStep.fillBuyerData()
+       CartPage.confirmOrder()
+       BuyerDataPage.orderSuccess()
 
     }
 }
