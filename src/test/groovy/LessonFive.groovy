@@ -51,9 +51,9 @@ class LessonFive {
         Selenide.$("#cart").click()
         def totalPrice = Selenide.$("tr.footer td:nth-of-type(2)").text
         assert totalPrice.double == price.double: " Wrong Price"
-       BuyerDataStep.fillBuyerData()
-       CartPage.confirmOrder()
-       BuyerDataPage.orderSuccess()
+        BuyerDataStep.fillBuyerData()
+        CartPage.confirmOrder()
+        BuyerDataPage.orderSuccess()
 
     }
 }
