@@ -1,6 +1,5 @@
 import ch.qos.logback.classic.encoder.PatternLayoutEncoder
 import ch.qos.logback.classic.filter.ThresholdFilter
-import de.huxhorn.lilith.logback.appender.ClassicMultiplexSocketAppender
 
 final String LOG_PATTERN = "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 
@@ -13,12 +12,6 @@ appender("STDOUT", ConsoleAppender) {
     }
 }
 
-appender("multiplex", ClassicMultiplexSocketAppender) {
-    compressing = true
-    reconnectionDelay = 10000L
-    includeCallerData = true
-    remoteHost = "localhost"
-}
 
 /**
  * <appender name="multiplex" class="de.huxhorn.lilith.logback.appender.ClassicMultiplexSocketAppender">
@@ -49,4 +42,4 @@ appender("FILE", FileAppender) {
     }
 }
 
-root(INFO, ["STDOUT", "multiplex"])
+root(INFO, ["STDOUT"])

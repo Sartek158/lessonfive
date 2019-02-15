@@ -8,7 +8,8 @@ class ProductPage {
 
     static getProductPrice() {
         def price = Selenide.$("div.information span.price").text
-        price.double
+        String newPrice = price.replaceAll('\\$', '')
+        newPrice.toDouble()
     }
 
     static addToCart() {
