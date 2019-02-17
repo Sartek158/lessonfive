@@ -1,8 +1,9 @@
 import LessonFive.pages.BuyerDataPage
-import LessonFive.pages.CartPage
 import LessonFive.pages.ProductPage
-import LessonFive.steps.BuyerDataStep
+import LessonFive.steps.BuyerDataSteps
+import LessonFive.steps.CartPageSteps
 import LessonFive.steps.MainPageSteps
+import LessonFive.steps.ProductPageSteps
 import org.testng.annotations.Test
 
 class LessonFive {
@@ -29,12 +30,12 @@ class LessonFive {
         MainPageSteps.selectProduct()
         def productPrice = ProductPage.getProductPrice()
         ProductPage.addcartCount()
-        ProductPage.addToCart()
-        ProductPage.goToCart()
-        CartPage.matchPrice(productPrice)
-        BuyerDataStep.fillBuyerData()
-        CartPage.confirmOrder()
-        BuyerDataPage.orderSuccess()
+        ProductPageSteps.addToCart()
+        ProductPageSteps.goToCart()
+        CartPageSteps.matchPrice(productPrice)
+        BuyerDataSteps.fillBuyerData()
+        CartPageSteps.confirmOrder()
+        BuyerDataPage.orderSuccsess()
 
     }
 }

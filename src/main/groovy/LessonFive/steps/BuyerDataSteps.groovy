@@ -3,8 +3,7 @@ package LessonFive.steps
 import LessonFive.elements.BuyerData
 import LessonFive.helpers.WebDriverHelper
 
-
-class BuyerDataStep {
+class BuyerDataSteps {
 
     static void fillBuyerData() {
         BuyerData.FirstName().setValue("Ivan" + UUID.randomUUID().toString())
@@ -17,4 +16,6 @@ class BuyerDataStep {
         WebDriverHelper.waitJS()
         BuyerData.Comments().setValue("V domofon ne zvonit")
     }
+
 }
+

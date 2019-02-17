@@ -5,7 +5,7 @@ import com.codeborne.selenide.Selenide
 
 class BuyerDataPage {
 
-    static String orderSuccess() {
+    static String orderSuccsess() {
         def orderSucces = Selenide.$("h1.title")
         orderSucces.waitUntil(Condition.text("Your order is successfully completed!"), 60000)
     }

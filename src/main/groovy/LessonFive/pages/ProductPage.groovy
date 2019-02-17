@@ -14,7 +14,6 @@ class ProductPage {
 
     static addToCart() {
         def addToCartButton = Selenide.$("button[name='add_cart_product']")
-        addToCartButton.click()
     }
 
     static addcartCount() {
@@ -24,7 +23,7 @@ class ProductPage {
 
     static goToCart() {
         WebDriverHelper.waitJS()
-        Selenide.$("#cart").click()
+        Selenide.$("#cart")
     }
 
 }
