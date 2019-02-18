@@ -29,7 +29,6 @@ class LessonFive {
         MainPageSteps.openMainPage()
         MainPageSteps.selectProduct()
         def productPrice = ProductPage.getProductPrice()
-        ProductPage.addcartCount()
         ProductPageSteps.addToCart()
         ProductPageSteps.goToCart()
         CartPageSteps.matchPrice(productPrice)
