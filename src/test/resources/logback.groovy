@@ -2,7 +2,6 @@ import ch.qos.logback.classic.encoder.PatternLayoutEncoder
 import ch.qos.logback.classic.filter.ThresholdFilter
 
 final String LOG_PATTERN = "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
-
 appender("STDOUT", ConsoleAppender) {
     filter(ThresholdFilter) {
         level = INFO
@@ -11,8 +10,6 @@ appender("STDOUT", ConsoleAppender) {
         pattern = LOG_PATTERN
     }
 }
-
-
 /**
  * <appender name="multiplex" class="de.huxhorn.lilith.logback.appender.ClassicMultiplexSocketAppender">
  *   <Compressing>true</Compressing>
@@ -31,7 +28,6 @@ appender("STDOUT", ConsoleAppender) {
  *   -->
  * </appender>
  */
-
 appender("FILE", FileAppender) {
     file = "c:\\EDU\\Homework\\info.txt"
     filter(ThresholdFilter) {
@@ -41,5 +37,4 @@ appender("FILE", FileAppender) {
         pattern = LOG_PATTERN
     }
 }
-
 root(INFO, ["STDOUT"])

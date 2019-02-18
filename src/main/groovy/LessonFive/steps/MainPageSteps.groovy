@@ -4,7 +4,6 @@ import LessonFive.pages.MainPage
 import com.codeborne.selenide.Selenide
 
 class MainPageSteps {
-
     static openMainPage() {
         Selenide.open("http://litecart.stqa.ru/en/")
     }
@@ -16,5 +15,4 @@ class MainPageSteps {
         def randomResult = random.nextInt(countOfProducts)
         products.get(randomResult).click()
     }
-
 }

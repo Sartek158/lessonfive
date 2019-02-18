@@ -1,3 +1,4 @@
+import LessonFive.helpers.WebDriverHelper
 import LessonFive.pages.BuyerDataPage
 import LessonFive.pages.ProductPage
 import LessonFive.steps.BuyerDataSteps
@@ -6,10 +7,10 @@ import LessonFive.steps.MainPageSteps
 import LessonFive.steps.ProductPageSteps
 import org.testng.annotations.Test
 
-class LessonFive {
 
+class LessonFive {
     @Test
-     void lessonFive() {
+    void lessonFive() {
 
         /**
          * Домашнее задание по теме PageObject - до понедельника, 24 декабря:
@@ -24,17 +25,15 @@ class LessonFive {
          * 9. Проверить, что отображается сообщение об успешном заказе (для страницы использовать отдельный PageObject)
          */
 
-
-
         MainPageSteps.openMainPage()
         MainPageSteps.selectProduct()
         def productPrice = ProductPage.getProductPrice()
         ProductPageSteps.addToCart()
+        WebDriverHelper.waitJS()
         ProductPageSteps.goToCart()
         CartPageSteps.matchPrice(productPrice)
         BuyerDataSteps.fillBuyerData()
         CartPageSteps.confirmOrder()
-        BuyerDataPage.orderSuccsess()
-
+        BuyerDataPage.getOrderSuccess()
     }
 }

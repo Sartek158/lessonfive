@@ -1,12 +1,10 @@
 package LessonFive.pages
 
-import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Selenide
+import com.codeborne.selenide.SelenideElement
 
 class BuyerDataPage {
-
-    static String orderSuccsess() {
-        def orderSucces = Selenide.$("h1.title")
-        orderSucces.waitUntil(Condition.text("Your order is successfully completed!"), 60000)
+    static SelenideElement getOrderSuccess() {
+        Selenide.$("h1.title")
     }
 }

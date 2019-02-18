@@ -1,13 +1,10 @@
 package LessonFive.elements
 
-
 import static com.codeborne.selenide.Selenide.$
 
 class BuyerData {
-
     static FirstName(String firstName) {
         $("input[name = 'firstname']")
-
     }
 
     static LastName(String lastName) {
@@ -37,6 +34,4 @@ class BuyerData {
     static Comments(String comments) {
         $("textarea[name = 'comments']")
     }
-
-
 }

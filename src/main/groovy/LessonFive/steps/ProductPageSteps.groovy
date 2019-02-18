@@ -1,20 +1,13 @@
 package LessonFive.steps
 
-
 import LessonFive.pages.ProductPage
 
 class ProductPageSteps {
-
-
     static addToCart() {
-        ProductPage.addToCart().click()
+        ProductPage.getAddToCartButton().click()
     }
 
     static goToCart() {
-
-        ProductPage.goToCart().click()
-
+        ProductPage.getGoToCartButton().click()
     }
-
-
 }
