@@ -1,12 +1,10 @@
 import LessonFive.helpers.WebDriverHelper
-import LessonFive.pages.BuyerDataPage
 import LessonFive.pages.ProductPage
 import LessonFive.steps.BuyerDataSteps
 import LessonFive.steps.CartPageSteps
 import LessonFive.steps.MainPageSteps
 import LessonFive.steps.ProductPageSteps
 import org.testng.annotations.Test
-
 
 class LessonFive {
     @Test
@@ -34,6 +32,6 @@ class LessonFive {
         CartPageSteps.matchPrice(productPrice)
         BuyerDataSteps.fillBuyerData()
         CartPageSteps.confirmOrder()
-        BuyerDataPage.getOrderSuccess()
+        BuyerDataSteps.OrderSuccess()
     }
 }
