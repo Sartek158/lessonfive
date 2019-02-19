@@ -8,12 +8,12 @@ import io.qameta.allure.Step
 
 class BuyerDataSteps {
 
-    @Step
+    @Step("Проверяем отображение сообщения об успешном заказе")
     static String OrderSuccess() {
         BuyerDataPage.getOrderSuccess().waitUntil(Condition.text("Your order is successfully completed!"), 60000)
     }
 
-    @Step
+    @Step("Заполняем данные получателя")
     static void fillBuyerData() {
         BuyerData.FirstName().setValue("Ivan" + UUID.randomUUID().toString())
         BuyerData.LastName().setValue("Medvedev" + UUID.randomUUID().toString())

@@ -5,12 +5,12 @@ import io.qameta.allure.Step
 
 class ProductPageSteps {
 
-    @Step
+    @Step("Кладем выбранный товар в корзину")
     static addToCart() {
         ProductPage.getAddToCartButton().click()
     }
 
-    @Step
+    @Step("Переходим в корзину")
     static goToCart() {
         ProductPage.getGoToCartButton().click()
     }

@@ -4,10 +4,14 @@ import LessonFive.steps.BuyerDataSteps
 import LessonFive.steps.CartPageSteps
 import LessonFive.steps.MainPageSteps
 import LessonFive.steps.ProductPageSteps
+import io.qameta.allure.Description
+import io.qameta.allure.Link
 import org.testng.annotations.Test
 
 class LessonFive {
     @Test
+    @Description("Покупаем утенка в магазине")
+    @Link(name = "Магазин утят", url = "http://litecart.stqa.ru/en/")
     void lessonFive() {
 
         /**

@@ -6,12 +6,12 @@ import io.qameta.allure.Step
 
 class MainPageSteps {
 
-    @Step
+    @Step("Открываем главную страницу магазина")
     static openMainPage() {
         Selenide.open("http://litecart.stqa.ru/en/")
     }
 
-    @Step
+    @Step("Выбираем рандомный продукт")
     static selectProduct() {
         def products = MainPage.getProducts()
         def countOfProducts = products.size()

@@ -6,13 +6,13 @@ import io.qameta.allure.Step
 
 class CartPageSteps {
 
-    @Step
+    @Step("Подтверждем заказ")
     static confirmOrder() {
         WebDriverHelper.waitJS()
         CartPage.confirmOrder.click()
     }
 
-    @Step
+    @Step("Проверяем что сумма заказа равна стоимости продукта")
     static matchPrice(double desiredPrice) {
         String newTotalPrice = CartPage.getPrice().replaceAll('\\$', '')
         double cartPrice = newTotalPrice.toDouble()
