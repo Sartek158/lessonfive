@@ -1,10 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name='Search' parallel="methods" thread-count="5">
-    <test name='Search_tests'>
-        <classes>
-            <class name="LessonEleven"></class>
-            <class name="LessonFive"></class>
-        </classes>
+<suite name='TestTool' parallel="methods" thread-count="3">
+    <test name='Search_TestTool'>
+        <groups>
+            <run>
+                <include name="TEST_A"/>
+                <include name="TEST_B"/>
+                <include name="TEST_C"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="LessonEleven"/>
+        </packages>
     </test>
 </suite>
