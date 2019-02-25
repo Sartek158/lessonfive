@@ -1,10 +1,10 @@
 package LessonEleven
 
-import LessonEleven.steps.Gradle
-import LessonEleven.steps.Groovy
-import LessonEleven.steps.TestNG
+import LessonEleven.pages.MainPage
 import groovy.util.logging.Slf4j
 import org.testng.annotations.Test
+
+import static com.codeborne.selenide.Selenide.$
 
 @Slf4j
 
@@ -20,17 +20,28 @@ class LessonElevenB extends LessonElevenA {
 
     @Test(groups = ["TEST_A"])
     void fundGroovy() {
-        TestNG.searchTestNG()
+        searchResult("Groovy")
     }
 
     @Test(groups = ["TEST_B"])
     void findGradle() {
-        Gradle.searchGradle()
+        searchResult("Gradle")
     }
 
     @Test(groups = ["TEST_C"])
     void findTestNG() {
-        Groovy.searchGroovy()
+        searchResult("TestNG")
     }
+
+    static searchResult(testingTool) {
+
+        MainPage.searchField().value = testingTool
+        $(".search2__button").click()
+
+        log.info("Test")
+
+
+    }
+
 
 }
