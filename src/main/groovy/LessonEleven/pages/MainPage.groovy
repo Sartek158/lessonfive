@@ -1,7 +1,6 @@
 package LessonEleven.pages
 
 import static com.codeborne.selenide.Selenide.$
-import static com.codeborne.selenide.Selenide.$$
 
 class MainPage {
 
@@ -9,10 +8,6 @@ class MainPage {
         $("#text")
     }
 
-
-    static resultList() {
-        $$(".organic__url")
-    }
 
 
 }

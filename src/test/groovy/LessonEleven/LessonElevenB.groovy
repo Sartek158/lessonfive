@@ -1,10 +1,13 @@
 package LessonEleven
 
+import LessonEleven.helpers.WebDriverHelper
 import LessonEleven.pages.MainPage
+import com.codeborne.selenide.CollectionCondition
 import groovy.util.logging.Slf4j
 import org.testng.annotations.Test
 
 import static com.codeborne.selenide.Selenide.$
+import static com.codeborne.selenide.Selenide.$$
 
 @Slf4j
 
@@ -37,9 +40,13 @@ class LessonElevenB extends LessonElevenA {
 
         MainPage.searchField().value = testingTool
         $(".search2__button").click()
+        def urlList = $$(".organic__url").shouldBe(CollectionCondition.sizeGreaterThan(1))
+        urlList.each {
+            WebDriverHelper.waitJS()
+            log.info("Нашли запись с $testingTool: ${it.getAttribute("href")}")
+        }
 
         log.info("Test")
-
 
     }
 
