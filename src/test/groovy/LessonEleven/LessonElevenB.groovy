@@ -46,8 +46,6 @@ class LessonElevenB extends LessonElevenA {
             log.info("Нашли запись с $testingTool: ${it.getAttribute("href")}")
         }
 
-        log.info("Test")
-
     }
 
 
