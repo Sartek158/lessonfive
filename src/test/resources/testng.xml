@@ -1,12 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name='TestTool' parallel="methods" thread-count="3">
-    <test name='Search_TestTool'>
+<suite name='TestTool' parallel="tests" thread-count="2">
+    <test name='Search_TestToolOne' parallel="methods" thread-count="2">
         <groups>
             <run>
                 <include name="TEST_A"/>
                 <include name="TEST_B"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="LessonEleven"/>
+        </packages>
+    </test>
+    <test name='Search_TestToolTwo' parallel="methods" thread-count="2">
+        <groups>
+            <run>
                 <include name="TEST_C"/>
+                <include name="TEST_D"/>
             </run>
         </groups>
         <packages>

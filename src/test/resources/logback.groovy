@@ -29,7 +29,7 @@ appender("STDOUT", ConsoleAppender) {
  * </appender>
  */
 appender("FILE", FileAppender) {
-    file = "c:\\EDU\\Homework\\info.txt"
+    file = "c:\\EDU\\LessonEleven\\info.txt"
     filter(ThresholdFilter) {
         level = INFO
     }
@@ -37,4 +37,5 @@ appender("FILE", FileAppender) {
         pattern = LOG_PATTERN
     }
 }
-root(INFO, ["STDOUT"])
+
+root(INFO, ["FILE", "STDOUT"])
